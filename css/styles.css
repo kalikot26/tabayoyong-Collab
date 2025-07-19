@@ -282,6 +282,7 @@ header h1 {
 /* -------------------------------------------------- */
 /* pag clinick ko ung edit profile , may lalabas and dito ung style */
 
+/*designed the modal to be the same to the delete pop up*/
 .modal {
     display: none;
     position: fixed;
@@ -297,88 +298,135 @@ header h1 {
 }
 
 .modal-content {
-    background: white;
+    background: linear-gradient(135deg, white, var(--surface));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
     padding: 2rem;
     max-width: 500px;
-    width: 100%;
-    border-radius: 8px;
+    width: 90%;
     text-align: left;
-    color: #333;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-lg);
+    animation: popupSlideIn 0.3s ease-out;
 }
 
 .modal-content h2 {
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: center;
 }
 
 .modal-content label {
     display: block;
     margin-bottom: 1rem;
     font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 .modal-content input[type="text"],
 .modal-content textarea,
 .modal-content input[type="file"] {
     width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.3rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: white;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.modal-content input[type="file"]:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+.modal-content input[type="file"]::file-selector-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.modal-content input[type="file"]::file-selector-button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.modal-content input[type="file"]::-webkit-file-upload-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.modal-content input[type="file"]::-webkit-file-upload-button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
 }
 
 .modal-buttons {
     display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 .modal-buttons button {
-    padding: 0.5rem 1rem;
-    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--radius);
     cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    min-width: 100px;
 }
 
 .modal-buttons button[type="submit"] {
-    background-color: #0077ff;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: white;
+}
+
+.modal-buttons button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 .modal-buttons button[type="button"] {
-    background-color: #ccc;
-    color: black;
+    background: linear-gradient(135deg, var(--surface), var(--secondary-color));
+    color: var(--text-primary);
+    border: 1px solid var(--border);
 }
 
-@media (max-width: 500px) {
-    .modal-content {
-        padding: 1rem;
-    }
+.modal-buttons button[type="button"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 /* -------------------------------------------------- */
-/* css para sa upload (ung modal) */
 
-.post-action-btn {
-    margin-right: 0.5rem;
-    padding: 0.3rem 0.8rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-
-.post-action-btn[data-action="retruth"] {
-    background-color: #007bff;
-    color: white;
-}
-
-.post-action-btn[data-action="untruth"] {
-    background-color: #dc3545;
-    color: white;
-}
 /* Post card in feed */
 
 .post-card {
@@ -514,8 +562,8 @@ header h1 {
     transform: translateY(-1px);
     box-shadow: var(--shadow);
 }
-/* eto ung css sa comment section */
 
+/* eto ung css sa comment section */
 .comments {
     margin-top: 1.5rem;
     border-top: 1px solid var(--border);
