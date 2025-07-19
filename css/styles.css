@@ -426,7 +426,6 @@ header h1 {
     box-shadow: var(--shadow);
 }
 /* -------------------------------------------------- */
-/* css para sa upload (ung modal) */
 
 /* Post card in feed */
 
@@ -563,10 +562,8 @@ header h1 {
     transform: translateY(-1px);
     box-shadow: var(--shadow);
 }
+
 /* eto ung css sa comment section */
-
-
-/* para sa comment container */
 .comments {
     margin-top: 1.5rem;
     border-top: 1px solid var(--border);
