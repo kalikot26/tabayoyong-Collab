@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="../css/LoginForm.css" />
+</head>
+
+
+<body>
+    <!-- HEader -->
+    <nav class="navbar">
+        <div class="logo">Bayanihan</div>
+        <div class="nav-center">
+            <button id="loginBtn" onclick="showLogin()">Login</button>
+            <button id="signupBtn" onclick="showSignup()">Signup</button>
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="container">
+            <!-- login -->
+            <form id="loginForm" class="form">
+                <h2>Login</h2>
+                <input type="text" placeholder="Username" value="" id="Username" required />
+                <input type="password" placeholder="Password" value="" id="Password" required />
+                <button type="submit" onclick="LogIn()">Login</button>
+            </form>
+
+            <!-- signup -->
+            <form id="signupForm" class="form hidden">
+                <h2>Signup</h2>
+                <input type="text" placeholder="Username" id="signupID" value="" required/>
+                <input type="email" placeholder="Email" value="" id="email" required />
+                <input type="password" placeholder="Password" id="passwordregID" value="" required />
+                <input type="password" placeholder="retype password" id="retypepasswordregID" value="" required />
+                <button type="submit" onclick="signUpClick()">Signup</button>
+            </form>
+        </div>
+    </main>
+
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+
+        var signUp;
+        var passwordreg;
+        var retypepasswordreg;
+        var Username;
+        var Password;
+
+        function signUpClick() {
+
+            signUp = document.getElementById("signupID").value;
+            passwordreg = document.getElementById("passwordregID").value;
+            retypepasswordreg = document.getElementById("retypepasswordregID").value;
+
+            if (retypepasswordreg != passwordreg) {
+                alert("Password does not match");
+
+            } else {
+                document.getElementById("signupID").value = "";
+                document.getElementById("passwordregID").value = "";
+                document.getElementById("retypepasswordregID").value = "";
+                document.getElementById("email").value = "";
+
+                alert("done");
+            }
+
+
+            event.preventDefault(); //sa form kasi pag nag submit ka, nagrereload. Either tanggalin ung form or ilagay to
+        }
+
+        function LogIn() {
+            Username = document.getElementById("Username").value;
+            Password = document.getElementById("Password").value;
+
+            if (Username == signUp && Password == passwordreg) {
+                alert("direct to mainpage");
+            } else {
+                alert("wrong username or password");
+                event.preventDefault();
+            }
+        }
+
+        function showLogin() {
+            loginForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+        }
+
+        function showSignup() {
+            signupForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>
